@@ -19,11 +19,11 @@ cd nextjs_devops
 
 Install Dependencies
 
-npm install
+->npm install
 
 Run Locally (Development)
 
-npm run dev
+->npm run dev
 
 The app will be available at http://localhost:3000
 
@@ -32,11 +32,11 @@ Docker Setup
 
 Build the Docker Image
 
-docker build -t nextjs-app:latest .
+->docker build -t nextjs-app:latest .
 
 Run the Container
 
-docker run -p 3000:3000 nextjs-app:latest
+->docker run -p 3000:3000 nextjs-app:latest
 
 Access your app at http://localhost:3000
 
@@ -63,19 +63,20 @@ Updates image tags in Kubernetes manifests
 Applies the manifests using kubectl
 
 Kubernetes Deployment (Minikube)
+--------------------------------------------------------------------------------------
 
-Start Minikube
+->Start Minikube
 
-minikube start
+->minikube start
 
 Apply Manifests
 
-kubectl apply -f k8s/deployment.yaml
+->kubectl apply -f k8s/deployment.yaml
 
-kubectl apply -f k8s/service.yaml
+->kubectl apply -f k8s/service.yaml
 
 Check Status
 
-kubectl get pods
+->kubectl get pods
 
-kubectl get svc
+->kubectl get svc
