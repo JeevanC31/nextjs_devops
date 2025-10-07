@@ -28,6 +28,7 @@ npm run dev
 The app will be available at http://localhost:3000
 
 Docker Setup
+------------------------------------------------------------------------------------
 
 Build the Docker Image
 
@@ -40,6 +41,7 @@ docker run -p 3000:3000 nextjs-app:latest
 Access your app at http://localhost:3000
 
 GitHub Actions CI/CD
+-----------------------------------------------------------------------------------------
 
 The workflow (.github/workflows/ci-cd.yaml) performs:
 
@@ -52,6 +54,7 @@ Builds image and pushes to GitHub Container Registry (GHCR)
 Uses proper tagging (latest and commit SHA)
 
 Deploy to Minikube
+-------------------------------------------------------------------------------------------
 
 Starts Minikube in GitHub Actions
 
