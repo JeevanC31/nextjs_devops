@@ -12,8 +12,8 @@ Automation of build and push using GitHub Actions and GitHub Container Registry 
 Deployment of the containerized app to Kubernetes (Minikube)
 ------------------------------------------------------------------------------------------------------------
 Clone the Repository
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/JeevanC31/nextjs_devops.git
+cd nextjs_devops
 
 Install Dependencies
 npm install
