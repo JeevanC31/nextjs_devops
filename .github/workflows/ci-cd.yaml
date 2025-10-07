@@ -47,7 +47,6 @@ jobs:
     needs: build-and-push
     runs-on: ubuntu-latest
 
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -62,11 +61,22 @@ jobs:
         run: |
           sed -i "s|ghcr.io/.*/.*:.*|ghcr.io/${{ env.OWNER }}/${{ env.REPO }}:latest|g" k8s/deployment.yaml
 
+      # ✅ Start Minikube inside the GitHub Actions runner
+      - name: Start Minikube
+        uses: medyagh/setup-minikube@latest
+
+      # ✅ Load the newly built image into Minikube (optional but recommended)
+      - name: Load image into Minikube
+        run: |
+          minikube image load ghcr.io/${{ env.OWNER }}/${{ env.REPO }}:latest
+
+      # ✅ Deploy manifests to Minikube
       - name: Deploy to Minikube
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
 
+      # ✅ Verify the deployment
       - name: Verify Deployment
         run: |
           kubectl rollout status deployment/nextjs-deployment
